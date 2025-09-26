@@ -53,15 +53,15 @@ This repository contains a comprehensive security audit of PrimeSkill Studio's g
 │   ├── MEDIUM.md               # 13 medium priority findings
 │   └── LOW.md                  # 3 low + 2 informational issues
 ├── exploits/
-│   ├── underflow-exploit.rs    # Demonstrates spawn overflow attack
-│   ├── economic-attack.rs      # Pay-to-spawn exploitation
-│   └── space-calc-fail.rs      # Space calculation proof-of-concept
+│   ├── exploit.rs    # Demonstrates All Exploits
+│  
 ├── fixes/
-│   ├── critical-fixes.md       # Required fixes for deployment
-│   └── recommended-improvements.md  # Architecture suggestions
-└── artifacts/
-    ├── original-code/          # Relevant source files analyzed
-    └── test-outputs/           # Exploit demonstration results
+│   ├── critical.rs       # Required fixes for deployment
+│   ├── high.rs 
+│   ├── low.rs 
+│   ├── medium.rs 
+└── artifacts/        
+    └── outputs/          # Exploit demonstration results
 ```
 
 ## Critical Vulnerabilities
@@ -91,16 +91,6 @@ Space calculations treat u16 as 16 bytes instead of 2 bytes, causing 66% rent ov
 - Pay-to-spawn rewards buying spawns over skill
 - No limits on spawn purchases create unfair advantages
 
-## Trust Model Warning
-
-This is a **hybrid centralized/decentralized** system where:
-- **Funds**: Secured by smart contracts (decentralized)
-- **Game Logic**: Controlled by backend authority (centralized)
-
-Users must trust the backend to:
-- Report game results honestly
-- Not manipulate outcomes
-- Maintain system security
 
 ## Recommendations
 
@@ -131,13 +121,14 @@ The audit includes proof-of-concept exploits demonstrating:
 - Space calculation failures
 - Account validation bypasses
 
-See `exploits/` directory for working demonstrations.
+See `fixes/` directory for working demonstrations.
 
 ## Impact Assessment
 
 **Financial Risk**: High - Multiple vectors for fund drainage and manipulation  
 **Operational Risk**: Critical - Deployment will fail with current space calculations  
-**Reputation Risk**: Severe - Economic exploits will damage platform credibility
+**Operational Cost**: Due to improper size calculations and too much space allocations, there might be increase to compute cost 
+
 
 ## Audit Methodology
 
@@ -154,8 +145,5 @@ This audit represents an independent security assessment conducted on September 
 
 **Auditor**: AlphaR  
 **GitHub**: [@AlphaR2](https://github.com/AlphaR2)  
-**Email**: audit@alphar.dev
 
 ---
-
-**⚠️ WARNING: Do not deploy this code to mainnet without addressing critical findings. User funds are at risk.**
