@@ -1,6 +1,6 @@
 # Security Audit: PrimeSkill Gaming Protocol
 
-**Independent Security Assessment of Solana Gaming Smart Contracts**
+**Independent Security Assessment of Solana Gaming Program**
 
 ## Overview
 
@@ -132,7 +132,7 @@ See `fixes/` directory for working demonstrations.
 
 ## Audit Methodology
 
-- **Manual Code Review**: Line-by-line analysis of all contracts
+- **Manual Code Review**: Line-by-line analysis of all the logic in the program
 - **Attack Vector Analysis**: Systematic vulnerability assessment  
 - **Economic Model Review**: Game theory and incentive analysis
 - **Integration Testing**: End-to-end flow validation
